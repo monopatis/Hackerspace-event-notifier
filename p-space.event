@@ -7,11 +7,11 @@ my $event = 1;
 my $string = 'Remote';
 my $oldevent = 0;
 my $message = "foo";
-my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';# or die "\nError\n\n";
+my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
 my @values = split(' ', $oldevent);
 while (1==1)
 {
-	$event = get("$url");# or die "\nThere was a problem downloading the HTML file.\n, If this is a HTTPS link make sure you have Net::SSL, module, which LWP depends on for SSL connections.\n";
+	$event = get("$url");
 	if ($oldevent ne $event){
 		$oldevent = $event ; 
 		@values = split(' ', $oldevent);
