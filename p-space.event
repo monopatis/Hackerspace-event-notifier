@@ -14,14 +14,15 @@ while (1==1)
 	if ($oldevent != $event){
 		$oldevent = $event ; 
 		@values = split(' ', $oldevent);
+		my $time= time()-$values[0];
 		if ($values[1]="Remote"){
-			$message = "Remote button pressed";
+			$message = "remote button pressed";
 		}
 		else { 
 			@values = split('<', $values[1]);
 			$message = $values[0]; 
 		}
-		system("notify-send 'P-space is open' '$message !' -t 60");
+		system("notify-send 'P-space is open' 'before $time secs $message !' -t 60");
 	}
 	sleep(15);
 }
