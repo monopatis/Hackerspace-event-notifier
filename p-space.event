@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+use strict;
+#use warnings;
+use LWP::Simple;
+my $event = 1;
+my $oldevent = 0;
+my $message = "foo";
+my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';# or die "\nError\n\n";
+my @values = split(' ', $oldevent);
+while (1==1)
+{
+	$event = get("$url");# or die "\nThere was a problem downloading the HTML file.\n, If this is a HTTPS link make sure you have Net::SSL, module, which LWP depends on for SSL connections.\n";
+	if ($oldevent != $event){
+		$oldevent = $event ; 
+		@values = split(' ', $oldevent);
+		if ($values[1]="Remote"){
+			$message = "Remote button pressed";
+		}
+		else { 
+			@values = split('<', $values[1]);
+			$message = $values[0]; 
+		}
+		system("notify-send 'P-space is open' '$message !' -t 60");
+	}
+	sleep(15);
+}
