@@ -1,13 +1,15 @@
 #!/usr/bin/perl
 
 use strict;
-#use warnings;
+use warnings;
 use LWP::Simple;
-my $event = 1;
+my $event = 'fpp';
 my $string = 'Remote';
-my $oldevent = 0;
-my $message = "foo";
+my $oldevent = 'foo';
+my $message = 'foo';
 my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
+#add if you want to see the last event on start
+$oldevent = get("$url");
 my @values = split(' ', $oldevent);
 while (1==1)
 {
