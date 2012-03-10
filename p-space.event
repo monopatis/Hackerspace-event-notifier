@@ -3,12 +3,13 @@
 use strict;
 use warnings;
 use LWP::Simple;
-my $event = 'fpp';
+my $event = 'foo';
 my $string = 'Remote';
 my $oldevent = 'foo';
 my $message = 'foo';
-my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
-#add if you want to see the last event on start
+my $time = '00:00';
+my $url = 'http://p-space.gr/report/index.php?limit=1&nostyle';
+#add # if you want to see the last event on start
 $oldevent = get("$url");
 my @values = split(' ', $oldevent);
 while (1==1)
@@ -17,7 +18,19 @@ while (1==1)
 	if ($oldevent ne $event){
 		$oldevent = $event ; 
 		@values = split(' ', $oldevent);
-		my $time= time()-$values[0];
+		my $sec= time()-$values[0];
+#		$sec = $sec*(-1);
+		if ($sec>60){
+			my $min = $sec;
+			$sec = $sec % 60;
+			$min = ($min-$sec)/60;
+			my $secs = sprintf("%02d", $sec);
+			print $secs;
+			$time = "$min:$secs mins";
+		}
+		else {
+			$time = "$sec secs"; 
+		}
 		if ($string eq $values[1]){
 			$message = "remote button pressed";
 		}
@@ -26,7 +39,7 @@ while (1==1)
 			my $user = $values[0];
 			$message = 'Card used by ' . $user ; 
 		}
-		system("notify-send 'P-space is open' '$message, $time secs ago' -t 60");
+		system("notify-send 'P-space is open' '$message, $time ago' -t 60");
 	}
 	sleep(15);
 }
