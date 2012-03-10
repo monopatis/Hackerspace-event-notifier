@@ -19,11 +19,13 @@ while (1==1)
 		$oldevent = $event ; 
 		@values = split(' ', $oldevent);
 		my $sec= time()-$values[0];
-#		$sec = $sec*(-1);
+		print "$sec \n";		
+		$sec = $sec+(8*60*60);
+		print $sec;
 		if ($sec>60){
 			my $min = $sec;
 			$sec = $sec % 60;
-			$min = ($min-$sec)/60;
+			$min = ($min-$sec);
 			my $secs = sprintf("%02d", $sec);
 			print $secs;
 			$time = "$min:$secs mins";
