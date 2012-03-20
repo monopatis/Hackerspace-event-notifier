@@ -3,6 +3,8 @@
 use strict;
 use warnings;
 use LWP::Simple;
+use FindBin;
+#$0 = "stealth";
 my $event = 'foo';
 my $string = 'Remote';
 my $oldevent = 'foo';
@@ -47,7 +49,9 @@ while (1==1)
 			my $user = $values[0];
 			$message = 'Card used by ' . $user ; 
 		}
-		system("notify-send 'P-space is open' '$message, $time ago' -t 60");
+		system("notify-send 'P-space is open' '$message, $time ago' -t 60  -i $FindBin::Bin/logo.png");
+# 		Use this for fedora and gnome3
+#		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i $FindBin::Bin/logo.png");
 	}
 	sleep(15);
 }
