@@ -4,7 +4,6 @@ Encoding=UTF-8
 Name=P-space event
 Type=Application
 Comment=Notify events from p-space
-Exec=/home/mitsos/github/p-space_notice/p-space.event
 Categories=Application;
 Terminal=false
-Icon=pspacelogo.png
+

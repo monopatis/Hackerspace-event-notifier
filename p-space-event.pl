@@ -51,7 +51,8 @@ while (1==1)
 		}
 #		system("notify-send 'P-space is open' '$message, $time ago' -t 60  -i $FindBin::Bin/logo.png");
 # 		Use this for fedora and gnome3
-		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i $FindBin::Bin/logo.png");
+#		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i $FindBin::Bin/logo.png");
+		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i ~/pspace.png");
 	}
 	sleep(15);
 }
