@@ -9,6 +9,7 @@ my $event = 'foo';
 my $string = 'Remote';
 my $oldevent = 'foo';
 my $message = 'foo';
+my $user = 'foo';
 my $time = '00:00';
 my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
 #add # if you want to see the last event on start
@@ -46,13 +47,15 @@ while (1==1)
 		}
 		else { 
 			@values = split('<', $values[1]);
-			my $user = $values[0];
+			$user = $values[0];
 			$message = 'Card used by ' . $user ; 
 		}
 #		system("notify-send 'P-space is open' '$message, $time ago' -t 60  -i $FindBin::Bin/logo.png");
 # 		Use this for fedora and gnome3
 #		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i $FindBin::Bin/logo.png");
-		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i ~/pspace.png");
+		if ($user ne "") {
+			system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i ~/pspace.png");
+		}
 	}
 	sleep(15);
 }
