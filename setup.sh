@@ -5,6 +5,6 @@ echo "Exec=$HOME/p-space-event.pl" >> pspaceevent.desktop
 echo "Icon=$HOME/pspace.png" >> pspaceevent.desktop 
 cp pspaceevent.desktop ~/.config/autostart
 cp pspaceevent.desktop ~/.local/share/applications/
-~/p-space-event.pl&
+~/p-space-event.pl > /dev/null&
 
 
