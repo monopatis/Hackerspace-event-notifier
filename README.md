@@ -8,4 +8,5 @@ How it works
 The (Hackerspace) Status Notifier checks for the contents of a specified **URL**, by default http://pspace.dyndns.org/report/ and notifies the user upon change. It uses 'notify-send' command for notifications from [Galano libnotify](http://www.galago-project.org/specs/notification/).
 How to use it
 -------
+You may need to install libwww-perl package first!
 Download all the files and extract them. Open terminal, change directory to extracted dir and run ./setup.sh
