@@ -12,6 +12,11 @@ my $message = 'foo';
 my $user = 'foo';
 my $time = '00:00';
 my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
+my $statusurl = 'http://www.p-space.gr/status/';
+my $status = 1;
+my $oldstatus = 0;
+my $statusmsg = 'foo';
+$oldstatus = get("$statusurl");
 #add # if you want to see the last event on start
 #$oldevent = get("$url");
 my @values = split(' ', $oldevent);
@@ -19,8 +24,21 @@ my @values = split(' ', $oldevent);
 while (1==1)
 {
 	$event = get("$url");
+	$status = get("$statusurl");
 	if ($oldevent ne $event){
-		$oldevent = $event ; 
+		$oldstatus = $status ;
+		if ($status == 1) {
+#                       print "\n       P-space is open         \n";
+                	$statusmsg = "P-space is open";
+                }
+                else {
+#                       print "\n               P-space closed          \n";
+                	$statusmsg = "P-space is closed";
+                }
+
+		if ($event ne ""){
+			 $oldevent = $event ;
+		} 
 		@values = split(' ', $oldevent);
 		my $diftime= time()-$values[0];
 		my ($sec, $min, $hour, $day,$month,$year) = (gmtime($diftime))[0,1,2,3,4,5];
@@ -53,8 +71,8 @@ while (1==1)
 #		system("notify-send 'P-space is open' '$message, $time ago' -t 60  -i $FindBin::Bin/logo.png");
 # 		Use this for fedora and gnome3
 #		system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i $FindBin::Bin/logo.png");
-		if ($user ne "") {
-			system("notify-send 'P-space is open' '$message, $time ago' --hint=int:transient:1  -i ~/pspace.png");
+		if ($user ne "" && $event ne "") {
+			system("notify-send '$statusmsg' '$message, $time ago' --hint=int:transient:1  -i ~/pspace.png");
 		}
 	}
 	sleep(15);
