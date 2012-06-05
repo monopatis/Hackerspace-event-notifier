@@ -6,3 +6,5 @@ Type=Application
 Comment=Notify events from p-space
 Categories=Application;
 Terminal=false
+Exec=/home/mitsos/p-space-event.pl
+Icon=/home/mitsos/pspace.png
