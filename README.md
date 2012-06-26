@@ -11,3 +11,5 @@ How to use it
 You may need to install libwww-perl package first!
 
 Download all the files and extract them. Open terminal, change directory to extracted dir and run ./setup.sh
+-------
+Για Ελληνικά δείτε [εδώ](http://wiki.p-space.gr/doku.php?id=projects:notifier)
