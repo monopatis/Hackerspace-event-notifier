@@ -29,11 +29,11 @@ while (1==1)
 		$oldstatus = $status ;
 		if ($status == 1) {
 #                       print "\n       P-space is open         \n";
-                	$statusmsg = "P-space is open";
+                	$statusmsg = "P-Space is open";
                 }
                 else {
 #                       print "\n               P-space closed          \n";
-                	$statusmsg = "P-space is closed";
+                	$statusmsg = "P-Space is closed";
                 }
 
 		if ($event ne ""){
