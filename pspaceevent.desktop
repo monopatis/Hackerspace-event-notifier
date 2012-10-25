@@ -2,7 +2,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=P-Space report
+GenericName=PSpace report
 Type=Application
-Comment=Notify events from p-space
+Comment=Notify events from P-Space
 Categories=Application;
 Terminal=false
