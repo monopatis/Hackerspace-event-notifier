@@ -40,7 +40,7 @@ while (1==1)
 			 $oldevent = $event ;
 		} 
 		@values = split(' ', $oldevent);
-		my $diftime= time()-$values[0]+28800;
+		my $diftime= time()-$values[0]+28800-1*60*60;
 		my ($sec, $min, $hour, $day,$month,$year) = (gmtime($diftime))[0,1,2,3,4,5];
 		$hour=$hour+($day-1)*24;
 #		print "Unix time ".$diftime." means ".$day." day, ";
