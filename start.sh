@@ -7,5 +7,5 @@ fi
 if [ -e /proc/$pid -a /proc/$pid/exe ]; then
 	kill $pid
 fi
-./p-space-event.pl&
+~/.pspacenotify/p-space-event.pl&
 echo $! > /tmp/pspace_event.pid
