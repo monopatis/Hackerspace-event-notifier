@@ -50,14 +50,17 @@ while (1==1)
 		my $hours = sprintf("%02d", $hour);
 		if ($hour>0){
 			
-			$time = "$hour:$mins:$secs hours";
+			$time = "$hour:$mins:$secs hours ago";
 		}
 		else{ 
 			if ($min>0) {
-				$time = "$min:$secs mins";
+				$time = "$min:$secs mins ago";
 			}
 			else {
-				$time = "$sec secs"; 
+				$time = "$sec secs ago";
+				if ($sec<15) {
+					$time = "just now";
+				} 
 			}
 		}
 		if ($string eq $values[1]){
@@ -71,7 +74,7 @@ while (1==1)
 #		system("notify-send 'P-space is open' '$message, $time ago' -t 60  -i $FindBin::Bin/logo.png");
 # 		Use this for fedora and gnome3
 		if ($user ne "" && $event ne "") {
-			system("notify-send '$statusmsg' '$message, $time ago' --hint=int:transient:1  -i ~/.pspacenotify/pspace.png");
+			system("notify-send '$statusmsg' '$message, $time' --hint=int:transient:1  -i ~/.pspacenotify/pspace.png");
 		}
 	}
 	sleep(15);
