@@ -11,7 +11,7 @@ my $oldevent = 'foo';
 my $message = 'foo';
 my $user = 'foo';
 my $time = '00:00';
-my $url = 'http://www.p-space.gr/report/index.php?limit=1&nostyle';
+my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
 my $statusurl = 'http://www.p-space.gr/status/';
 my $status = 1;
 my $oldstatus = 0;
